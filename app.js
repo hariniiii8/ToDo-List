@@ -33,7 +33,8 @@ app.get("/about",function(req,res)
 
 app.post("/",function(req,res)
 {
-  console.log(req.body); let item = req.body.listitem;
+  console.log(req.body);
+   let item = req.body.listitem;
   if(req.body.list==="Work")
   {
   workitems.push(item);
