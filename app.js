@@ -1,6 +1,7 @@
 const express=require("express");
 
 const app=express();
+const date=require(__dirname+"/date.js");
 app.set('view engine','ejs');
 const bodyParser=require("body-parser");
 var items=["Buy Food","Cook Food","Eat Food"];
@@ -14,14 +15,7 @@ app.listen(3000,function()
 });
 app.get("/",function(req,res)
 {
-  var today=new Date();
-var options=
-{
-  weekday:"long",
-  day:"numeric",
-  month:"long",
-}
-var day= today.toLocaleDateString("en-US", options);
+  var day=date.getDate();
 res.render("list",{listtitle:day,listitem:items});
 });
 
